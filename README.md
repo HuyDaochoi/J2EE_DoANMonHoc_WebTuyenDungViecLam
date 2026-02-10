@@ -1,6 +1,6 @@
 # REQUIREMENT WEBSITE TUYỂN DỤNG VIỆC LÀM
 
-*(Xây dựng dựa trên thiết kế CSDL hiện tại)*
+https://start.spring.io/ Link lay thư viện
 
 ---
 
