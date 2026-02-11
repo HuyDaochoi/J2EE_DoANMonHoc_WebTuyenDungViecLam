@@ -1,11 +1,17 @@
 package com.example.DA_WebTuyenDungViecLam.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import com.example.DA_WebTuyenDungViecLam.enums.SkillCategory;
+import lombok.Getter;
+import lombok.Setter;   
+import lombok.NoArgsConstructor;
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "skills")
-public class Skill {
+
+public class Skill extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +25,4 @@ public class Skill {
     @Column(nullable = false)
     private SkillCategory category = SkillCategory.OTHER;
 
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
-    }
-
-    // getter / setter
 }

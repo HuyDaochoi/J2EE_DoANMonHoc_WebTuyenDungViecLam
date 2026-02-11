@@ -1,11 +1,17 @@
 package com.example.DA_WebTuyenDungViecLam.entity;
-
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import com.example.DA_WebTuyenDungViecLam.entity.BaseEntity;
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "categories")
-public class Category {
+public class Category extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,13 +32,5 @@ public class Category {
     @Column(name = "is_active")
     private Boolean active = true;
 
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
 
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
-    }
-
-    // ===== getter & setter =====
 }
