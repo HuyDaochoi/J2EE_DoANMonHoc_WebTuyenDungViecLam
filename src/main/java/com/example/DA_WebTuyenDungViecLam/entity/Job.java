@@ -5,11 +5,15 @@ import com.example.DA_WebTuyenDungViecLam.enums.JobLevel;
 import com.example.DA_WebTuyenDungViecLam.enums.JobStatus;
 import com.example.DA_WebTuyenDungViecLam.enums.JobType;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "jobs")
-public class Job {
+public class Job extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,23 +83,5 @@ public class Job {
 
     private Integer views = 0;
 
-    /* ================== TIME ================== */
-
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
-
-    // getter / setter
+    
 }

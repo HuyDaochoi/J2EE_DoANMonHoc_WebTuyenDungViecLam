@@ -4,15 +4,17 @@ import com.example.DA_WebTuyenDungViecLam.enums.ApplicationStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
+
 import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
+
 @Table(
     name = "applications",
     uniqueConstraints = {
+        // tranh 1 don nop lai nhieu lan bi trung lap
         @UniqueConstraint(columnNames = {"candidate_id", "job_id"})
     }
 )
@@ -29,7 +31,7 @@ public class Application {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "job_id", nullable = false)
     private Job job;
-
+// tranmg thai
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ApplicationStatus status = ApplicationStatus.PENDING;
@@ -42,5 +44,4 @@ public class Application {
         this.appliedAt = LocalDateTime.now();
     }
 
-    // getter / setter
 }

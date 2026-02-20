@@ -3,7 +3,6 @@ package com.example.DA_WebTuyenDungViecLam.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import com.example.DA_WebTuyenDungViecLam.enums.Gender;
 import com.example.DA_WebTuyenDungViecLam.enums.EducationLevel;
 @Entity
@@ -13,7 +12,7 @@ import com.example.DA_WebTuyenDungViecLam.enums.EducationLevel;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Candidate {
+public class Candidate extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,21 +50,6 @@ public class Candidate {
     @Column(name = "cv_url", length = 500)
     private String cvUrl;
 
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = createdAt;
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
+   
 }
 

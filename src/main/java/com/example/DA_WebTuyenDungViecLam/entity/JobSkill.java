@@ -2,7 +2,10 @@ package com.example.DA_WebTuyenDungViecLam.entity;
 
 import com.example.DA_WebTuyenDungViecLam.entity.ids.JobSkillId;
 import jakarta.persistence.*;
-
+import lombok.*;
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "job_skills")
 public class JobSkill {
@@ -23,5 +26,5 @@ public class JobSkill {
     @Column(name = "is_required")
     private Boolean required = true;
 
-    // getter / setter
+    
 }

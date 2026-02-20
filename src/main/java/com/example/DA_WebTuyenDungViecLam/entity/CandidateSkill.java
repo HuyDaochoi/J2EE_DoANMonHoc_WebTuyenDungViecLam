@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "candidate_skills")
 public class CandidateSkill {
 
@@ -27,5 +30,5 @@ public class CandidateSkill {
     @Column(nullable = false)
     private SkillLevel level = SkillLevel.INTERMEDIATE;
 
-    // getter / setter
+    
 }

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import com.example.DA_WebTuyenDungViecLam.enums.UserStatus;
 import com.example.DA_WebTuyenDungViecLam.enums.UserRole;
 import com.example.DA_WebTuyenDungViecLam.enums.AuthProvider;
+import com.example.DA_WebTuyenDungViecLam.entity.BaseEntity;
 @Entity
 @Table(name = "users")
 @Getter
@@ -12,7 +13,7 @@ import com.example.DA_WebTuyenDungViecLam.enums.AuthProvider;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,20 +55,5 @@ public class User {
     @Column(name = "last_seen")
     private LocalDateTime lastSeen;
 
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = createdAt;
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
+   
 }
